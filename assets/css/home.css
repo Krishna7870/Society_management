@@ -1,0 +1,7 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .body{
+      background-color: rgb(197, 131, 49);
+  }

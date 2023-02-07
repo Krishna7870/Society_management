@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            html {
+  background: #8796a8;
+}
+
+.container {
+  display: grid;
+  grid-auto-columns: minmax(15rem, auto);
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+}
+.item {
+  background: #1685e0;
+  border: 3px solid #04325e;
+  color: #120e16;
+  padding: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+        </style>
+    </head>
+    <body>
+        <h1>Home page!</h1>
+        <% if(locals.user){ %>
+            <a href="/users/sign-out">
+                 <button type="button">Sign-Out</button>
+            </a>
+            <a href="/users/user-profile/<%= user.id %>">
+              <button type="button">Profile</button>
+         </a>
+         <a href="/users/help">
+          <button type="button">Help</button>
+     </a>
+     <a href="/notification">
+      <button type="button">Notification</button>
+    </a>
+        <p><%= user.headMember%></p>
+        <p><%= user.email%></p>
+        <% } else{ %>
+          <a href="/users/sign-in">
+            <button type="button">Sign-In</button>
+       </a>
+       <% } %>
+
+        <div class="container">
+            
+            <a href="/service-provider/carpenters"><div class="item">Carpenters </div></a>
+            <a href="/service-provider/Plumbers">  <div class="item">Plumbers</div></a>
+              <a href="/service-provider/Maids">  <div class="item">Maids</div></a>
+                <a href="/service-provider/Barbers"> <div class="item">Barbers</div></a>
+                  <a href="/service-provider/Electricians"> <div class="item">Electricians</div></a>
+                    <a href="/service-provider/Guards"> <div class="item">Guards</div></a>
+                      <a href="/service-provider/Labours"> <div class="item">Labours</div></a>
+                        <a href="/service-provider/Teachers"> <div class="item">Teachers</div></a>
+            
+          </div>
+       
+    </body>
+</html>

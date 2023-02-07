@@ -1,0 +1,53 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <%- include('_header') -%>
+        <h1>User profile page!</h1>
+        <p><%= user.headMember%></p>
+        <p><%= user.email%></p>
+        <img src="<%= user.avatar %>" alt="<%= user.headMember %>" width="100">
+        <% if( user.id == profile_user.id ){%>
+            <form action="/users/profile/update/<%=profile_user.id%>" enctype="multipart/form-data" method="post">
+                <label for="pp">Profile Picture</label>
+                <input type="file" name="avatar" placeholder="Profile picture" id="pp"><br>
+                <label for="hm">HeadMember</label>
+                <input type="text" name="headMember" placeholder="Your Name" value="<%= profile_user.headMember%>" id="hm" required><br>
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email%>" id="email" required ><br>
+                <label for="no_Of_Member">No_Of_Member</label>
+                <input type="text" name="no_Of_Member" placeholder="no_Of_Member" value="<%= profile_user.no_Of_Member%>" id="no_Of_Member" required><br>
+                <label for="no_Of_Member">Contact</label>
+                <input type="text" name="contact" placeholder="Your contact" value="<%= profile_user.contact%>" id="contact" required><br>
+                <label for="no_Of_Member">Flat_Number</label>
+                <input type="text" name="flat_Number" placeholder="flat_Number" value="<%= profile_user.flat_Number%>" id="flat_Number" required><br>
+                <label for="no_Of_Member">Building_Number</label>
+                <input type="text" name="building_Number" placeholder="building_Number" value="<%= profile_user.building_Number%>" id="building_Number" required><br>
+                <label for="no_Of_Member">No_Of_Vechile</label>
+                <input type="text" name="no_Of_Vechile" placeholder="no_Of_Vechile" value="<%= profile_user.no_Of_Vechile%>" id="no_Of_Vechile" required><br>
+                <label for="no_Of_Member">Password</label>
+                <input type="password" name="password" placeholder="Your Password" value="<%= profile_user.password%>" id="password" required><br>
+                <input type="submit" value="Update">
+
+            </form>
+        
+
+            <% } %>
+
+            <h1>Register Guest!</h1>
+            <% if( user.id == profile_user.id ){%>
+            <form action="/users/invite_guest/<%=profile_user.id%>" method="post">
+                <label for="gn">Guest Name</label>
+                <input type="text" name="name" placeholder="Guest Name"  id="gn" required><br>
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Your Email"  id="email" required ><br>
+                <label for="No_of_Guest">No_of_Guest</label>
+                <input type="text" name="no_of_guest" placeholder="No_of_Guest"  id="No_of_Guest" required><br>
+                <label for="otp">OTP</label>
+                <input type="text" name="otp" placeholder="otp" value="<%=Math.floor(Math.random()*(20000-1000)+100)%>" id="otp" required><br>
+                <input type="submit" value="Submit">
+            </form>
+            <% } %>
+    </body>
+</html>
